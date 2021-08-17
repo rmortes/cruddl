@@ -70,7 +70,20 @@ export async function start() {
     logger.info('Schema is up to date');
 
     if (process.argv.includes('--run-ttl-cleanup')) {
-        await project.executeTTLCleanup(db, {});
+        const result = await project.executeTTLCleanupExt(db, {
+            timeToLiveOptions: { cleanupLimit: 100, reduceLimitOnResourceLimits: true }
+        });
+        for (const type of result.types) {
+            if (type.error) {
+                console.log(`${type.type.rootEntityType?.name || ''}: ${type.error.stack}`);
+            } else {
+                console.log(
+                    `${type.type.rootEntityType?.name || ''}: ${type.deletedObjectsCount} / ${
+                        type.deletedObjectsCount
+                    }${type.hasReducedLimit ? ' (reduced)' : ''}${type.isComplete ? ' (complete)' : ''}`
+                );
+            }
+        }
     }
 
     if (process.argv.includes('--print-ttl-info')) {

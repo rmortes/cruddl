@@ -18,6 +18,7 @@ var validate = (function() {
             'use strict';
             var vErrors = null;
             var errors = 0;
+            if (rootData === undefined) rootData = data;
             if (data && typeof data === 'object' && !Array.isArray(data)) {
                 var errs__0 = errors;
                 var valid1 = true;
@@ -627,6 +628,24 @@ var validate = (function() {
                                 if (data2 && typeof data2 === 'object' && !Array.isArray(data2)) {
                                     var errs__4 = errors;
                                     var valid5 = true;
+                                    for (var key4 in data2) {
+                                        var isAdditional4 = !(false || key4 == 'label' || key4 == 'hint');
+                                        if (isAdditional4) {
+                                            valid5 = false;
+                                            var err = {
+                                                keyword: 'additionalProperties',
+                                                dataPath: (dataPath || '') + ".fields['" + key1 + "']",
+                                                schemaPath: '#/definitions/FieldLocalization/additionalProperties',
+                                                params: {
+                                                    additionalProperty: '' + key4 + ''
+                                                },
+                                                message: 'should NOT have additional properties'
+                                            };
+                                            if (vErrors === null) vErrors = [err];
+                                            else vErrors.push(err);
+                                            errors++;
+                                        }
+                                    }
                                     if (data2.label !== undefined) {
                                         var errs_5 = errors;
                                         if (typeof data2.label !== 'string') {
@@ -663,6 +682,19 @@ var validate = (function() {
                                         }
                                         var valid5 = errors === errs_5;
                                     }
+                                } else {
+                                    var err = {
+                                        keyword: 'type',
+                                        dataPath: (dataPath || '') + ".fields['" + key1 + "']",
+                                        schemaPath: '#/definitions/FieldLocalization/type',
+                                        params: {
+                                            type: 'object'
+                                        },
+                                        message: 'should be object'
+                                    };
+                                    if (vErrors === null) vErrors = [err];
+                                    else vErrors.push(err);
+                                    errors++;
                                 }
                                 var valid4 = errors === errs_4;
                                 var valid3 = errors === errs_3;
@@ -686,6 +718,8 @@ var validate = (function() {
                                     }
                                     var valid3 = errors === errs_3;
                                     valid2 = valid2 || valid3;
+                                    if (!valid2) {
+                                    }
                                 }
                                 if (!valid2) {
                                     var err = {
@@ -769,6 +803,7 @@ var validate = (function() {
             'use strict';
             var vErrors = null;
             var errors = 0;
+            if (rootData === undefined) rootData = data;
             if (data && typeof data === 'object' && !Array.isArray(data)) {
                 var errs__0 = errors;
                 var valid1 = true;
@@ -814,6 +849,24 @@ var validate = (function() {
                                 if (data2 && typeof data2 === 'object' && !Array.isArray(data2)) {
                                     var errs__4 = errors;
                                     var valid5 = true;
+                                    for (var key4 in data2) {
+                                        var isAdditional4 = !(false || key4 == 'label' || key4 == 'hint');
+                                        if (isAdditional4) {
+                                            valid5 = false;
+                                            var err = {
+                                                keyword: 'additionalProperties',
+                                                dataPath: (dataPath || '') + ".fields['" + key1 + "']",
+                                                schemaPath: '#/definitions/FieldLocalization/additionalProperties',
+                                                params: {
+                                                    additionalProperty: '' + key4 + ''
+                                                },
+                                                message: 'should NOT have additional properties'
+                                            };
+                                            if (vErrors === null) vErrors = [err];
+                                            else vErrors.push(err);
+                                            errors++;
+                                        }
+                                    }
                                     if (data2.label !== undefined) {
                                         var errs_5 = errors;
                                         if (typeof data2.label !== 'string') {
@@ -850,6 +903,19 @@ var validate = (function() {
                                         }
                                         var valid5 = errors === errs_5;
                                     }
+                                } else {
+                                    var err = {
+                                        keyword: 'type',
+                                        dataPath: (dataPath || '') + ".fields['" + key1 + "']",
+                                        schemaPath: '#/definitions/FieldLocalization/type',
+                                        params: {
+                                            type: 'object'
+                                        },
+                                        message: 'should be object'
+                                    };
+                                    if (vErrors === null) vErrors = [err];
+                                    else vErrors.push(err);
+                                    errors++;
                                 }
                                 var valid4 = errors === errs_4;
                                 var valid3 = errors === errs_3;
@@ -873,6 +939,8 @@ var validate = (function() {
                                     }
                                     var valid3 = errors === errs_3;
                                     valid2 = valid2 || valid3;
+                                    if (!valid2) {
+                                    }
                                 }
                                 if (!valid2) {
                                     var err = {
@@ -916,6 +984,24 @@ var validate = (function() {
                                 if (data2 && typeof data2 === 'object' && !Array.isArray(data2)) {
                                     var errs__4 = errors;
                                     var valid5 = true;
+                                    for (var key4 in data2) {
+                                        var isAdditional4 = !(false || key4 == 'label' || key4 == 'hint');
+                                        if (isAdditional4) {
+                                            valid5 = false;
+                                            var err = {
+                                                keyword: 'additionalProperties',
+                                                dataPath: (dataPath || '') + ".values['" + key1 + "']",
+                                                schemaPath: '#/definitions/EnumValueLocalization/additionalProperties',
+                                                params: {
+                                                    additionalProperty: '' + key4 + ''
+                                                },
+                                                message: 'should NOT have additional properties'
+                                            };
+                                            if (vErrors === null) vErrors = [err];
+                                            else vErrors.push(err);
+                                            errors++;
+                                        }
+                                    }
                                     if (data2.label !== undefined) {
                                         var errs_5 = errors;
                                         if (typeof data2.label !== 'string') {
@@ -952,6 +1038,19 @@ var validate = (function() {
                                         }
                                         var valid5 = errors === errs_5;
                                     }
+                                } else {
+                                    var err = {
+                                        keyword: 'type',
+                                        dataPath: (dataPath || '') + ".values['" + key1 + "']",
+                                        schemaPath: '#/definitions/EnumValueLocalization/type',
+                                        params: {
+                                            type: 'object'
+                                        },
+                                        message: 'should be object'
+                                    };
+                                    if (vErrors === null) vErrors = [err];
+                                    else vErrors.push(err);
+                                    errors++;
                                 }
                                 var valid4 = errors === errs_4;
                                 var valid3 = errors === errs_3;
@@ -975,6 +1074,8 @@ var validate = (function() {
                                     }
                                     var valid3 = errors === errs_3;
                                     valid2 = valid2 || valid3;
+                                    if (!valid2) {
+                                    }
                                 }
                                 if (!valid2) {
                                     var err = {
@@ -1119,6 +1220,8 @@ var validate = (function() {
     refVal4.errors = null;
     refVal[4] = refVal4;
     var refVal5 = {
+        type: 'object',
+        additionalProperties: false,
         properties: {
             label: {
                 type: 'string'
@@ -1130,6 +1233,8 @@ var validate = (function() {
     };
     refVal[5] = refVal5;
     var refVal6 = {
+        type: 'object',
+        additionalProperties: false,
         properties: {
             label: {
                 type: 'string'
@@ -2212,6 +2317,8 @@ validate.schema = {
             }
         },
         FieldLocalization: {
+            type: 'object',
+            additionalProperties: false,
             properties: {
                 label: {
                     type: 'string'
@@ -2222,6 +2329,8 @@ validate.schema = {
             }
         },
         EnumValueLocalization: {
+            type: 'object',
+            additionalProperties: false,
             properties: {
                 label: {
                     type: 'string'
